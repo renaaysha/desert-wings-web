@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enquiry Dashboard | Desert Wings W.L.L.</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0e4a4f">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("dw_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-head left">
+          <span class="eyebrow">Demo back-office</span>
+          <h1 style="font-size:2rem">Enquiry Dashboard</h1>
+        </div>
+        <p class="notice"><strong>Demo only:</strong> this dashboard reads submissions saved in <em>this browser</em> (localStorage). On a live site, forms should send data to a secure server or form service, and this page should sit behind a login.</p>
+
+        <div class="admin-stats" id="adminStats"></div>
+
+        <div class="admin-toolbar">
+          <div class="admin-tabs" id="adminTabs"></div>
+          <div class="btn-row">
+            <input id="adminSearch" type="search" placeholder="Search…" aria-label="Search submissions" style="max-width:220px">
+            <button class="btn btn-outline btn-sm" type="button" id="exportCsv"><i data-icon="download" data-size="16"></i> Export CSV</button>
+            <button class="btn btn-outline btn-sm" type="button" id="clearAll"><i data-icon="trash" data-size="16"></i> Clear tab</button>
+          </div>
+        </div>
+
+        <div class="table-wrap" id="adminTable"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

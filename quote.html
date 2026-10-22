@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get a Quote | Desert Wings W.L.L.</title>
+  <meta name="description" content="Get an instant indicative estimate for industrial catering, packed meals, cafeteria, event catering, housekeeping and laundry in Qatar.">
+  <meta name="theme-color" content="#0e4a4f">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("dw_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Get a Quote</li></ol>
+        <span class="eyebrow">Quote calculator</span>
+        <h1>Get an Instant Estimate</h1>
+        <p>Answer four quick steps to see an indicative monthly budget. Our team will follow up with a detailed proposal.</p>
+      </div>
+      <svg class="dunes" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40c160-30 320-30 480 0s320 30 480 0 320-30 480 0v30H0z"/></svg>
+    </section>
+
+    <section class="section">
+      <div class="container quote-layout">
+        <div class="form-card">
+          <ol class="stepper" id="stepper" aria-label="Quote progress">
+            <li class="active">Service</li><li>Requirements</li><li>Your details</li><li>Review</li>
+          </ol>
+
+          <form id="quoteForm" novalidate>
+            <!-- STEP 1: service -->
+            <fieldset class="step-panel" data-step="0">
+              <legend class="sr-only">Step 1: choose a service</legend>
+              <h2>Which service do you need?</h2>
+              <p class="muted">Choose the main service. You can add housekeeping and laundry in the next step.</p>
+              <div class="option-grid field" id="serviceOptions"><!-- built by quote.js --></div>
+              <small class="field-error" id="serviceError"></small>
+            </fieldset>
+
+            <!-- STEP 2: requirements -->
+            <fieldset class="step-panel" data-step="1" hidden>
+              <legend class="sr-only">Step 2: requirements</legend>
+              <h2>Tell us about your requirements</h2>
+
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="headcount"><span id="headcountLabel">Number of people</span> <span class="req">*</span></label>
+                  <div class="range-row">
+                    <input id="headcountRange" type="range" min="10" max="5000" step="10" value="200" aria-label="Number of people slider">
+                    <input id="headcount" name="headcount" type="number" min="10" max="20000" value="200" required style="max-width:120px">
+                  </div>
+                  <small class="field-error"></small>
+                </div>
+
+                <div class="field full" id="mealsField">
+                  <fieldset>
+                    <legend>Meals per day <span class="req">*</span></legend>
+                    <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+                      <label class="check"><input type="checkbox" name="meals" value="breakfast" checked> Breakfast</label>
+                      <label class="check"><input type="checkbox" name="meals" value="lunch" checked> Lunch</label>
+                      <label class="check"><input type="checkbox" name="meals" value="dinner" checked> Dinner</label>
+                      <label class="check"><input type="checkbox" name="meals" value="snack"> Night meal / snack</label>
+                    </div>
+                  </fieldset>
+                  <small class="field-error" id="mealsError"></small>
+                </div>
+
+                <div class="field" id="daysField">
+                  <label for="days">Service days per week</label>
+                  <select id="days" name="days">
+                    <option value="7">7 days</option><option value="6" selected>6 days</option><option value="5">5 days</option>
+                  </select>
+                </div>
+
+                <div class="field" id="tierField" hidden>
+                  <label for="tier">Event menu tier</label>
+                  <select id="tier" name="tier">
+                    <option value="standard">Standard buffet</option>
+                    <option value="premium">Premium buffet</option>
+                    <option value="vip">VIP / plated</option>
+                  </select>
+                </div>
+
+                <div class="field" id="eventsField" hidden>
+                  <label for="events">Number of events</label>
+                  <input id="events" name="events" type="number" min="1" max="100" value="1">
+                  <small class="field-error"></small>
+                </div>
+
+                <div class="field" id="durationField">
+                  <label for="duration">Contract duration (months)</label>
+                  <select id="duration" name="duration">
+                    <option value="1">1 month</option><option value="3">3 months</option><option value="6">6 months</option>
+                    <option value="12" selected>12 months</option><option value="24">24 months</option>
+                  </select>
+                </div>
+
+                <div class="field" id="cafeteriaField" hidden>
+                  <label for="cafeterias">Number of cafeterias / mess halls</label>
+                  <input id="cafeterias" name="cafeterias" type="number" min="1" max="50" value="1">
+                  <small class="field-error"></small>
+                </div>
+
+                <div class="field">
+                  <label for="location">Site location</label>
+                  <select id="location" name="location">
+                    <option value="doha">Doha / Al Wakra</option>
+                    <option value="industrial">Industrial Area / Mesaieed / Ras Laffan</option>
+                    <option value="remote">Remote site</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="startDate">Preferred start date</label>
+                  <input id="startDate" name="startDate" type="date">
+                  <small class="field-error"></small>
+                </div>
+
+                <div class="field full" id="addonsField">
+                  <fieldset>
+                    <legend>Add-on services</legend>
+                    <label class="check"><input type="checkbox" name="addons" value="housekeeping"> Housekeeping (per person / month)</label>
+                    <label class="check"><input type="checkbox" name="addons" value="laundry"> Laundry (per person / month)</label>
+                  </fieldset>
+                </div>
+
+                <div class="field full">
+                  <label for="diet">Dietary / cuisine notes</label>
+                  <textarea id="diet" name="diet" rows="3" placeholder="e.g. 60% South Asian, 30% Filipino, 10% Arab; 40 vegetarian meals daily"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- STEP 3: contact details -->
+            <fieldset class="step-panel" data-step="2" hidden>
+              <legend class="sr-only">Step 3: your details</legend>
+              <h2>Your contact details</h2>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="qName">Full name <span class="req">*</span></label>
+                  <input id="qName" name="name" required minlength="2" autocomplete="name">
+                  <small class="field-error"></small>
+                </div>
+                <div class="field">
+                  <label for="qCompany">Company <span class="req">*</span></label>
+                  <input id="qCompany" name="company" required autocomplete="organization">
+                  <small class="field-error"></small>
+                </div>
+                <div class="field">
+                  <label for="qEmail">Work email <span class="req">*</span></label>
+                  <input id="qEmail" name="email" type="email" required autocomplete="email">
+                  <small class="field-error"></small>
+                </div>
+                <div class="field">
+                  <label for="qPhone">Phone <span class="req">*</span></label>
+                  <input id="qPhone" name="phone" type="tel" required pattern="[+]?[0-9 \-]{8,16}" data-pattern-msg="Enter a valid phone number, e.g. +974 3366 8004" autocomplete="tel" placeholder="+974">
+                  <small class="field-error"></small>
+                </div>
+                <div class="field full">
+                  <label for="qSite">Project / site name</label>
+                  <input id="qSite" name="site" placeholder="e.g. Ras Laffan expansion camp">
+                </div>
+                <div class="field full">
+                  <label class="check"><input type="checkbox" name="consent" required> I agree that Desert Wings may contact me about this enquiry.</label>
+                  <small class="field-error"></small>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- STEP 4: review -->
+            <div class="step-panel" data-step="3" hidden>
+              <h2>Review your request</h2>
+              <dl class="review-list" id="reviewList"></dl>
+            </div>
+
+            <!-- Success screen -->
+            <div class="step-panel success-box" data-step="4" hidden>
+              <div class="tick"><i data-icon="check" data-size="40"></i></div>
+              <h2>Thank you! Your request has been received.</h2>
+              <p class="muted">Your reference number is</p>
+              <div class="ref" id="quoteRef"></div>
+              <p class="muted">Our team will contact you within one working day. Keep your reference for follow-up.</p>
+              <div class="btn-row no-print">
+                <button class="btn btn-outline" type="button" id="printQuote"><i data-icon="printer" data-size="18"></i> Print summary</button>
+                <button class="btn btn-outline" type="button" id="downloadQuote"><i data-icon="download" data-size="18"></i> Download summary</button>
+                <a class="btn btn-outline" id="emailQuote" href="#"><i data-icon="mail" data-size="18"></i> Email to Desert Wings</a>
+                <button class="btn btn-primary" type="button" id="newQuote">New quote</button>
+              </div>
+            </div>
+
+            <div class="step-actions" id="stepActions">
+              <button class="btn btn-outline" type="button" id="prevBtn" disabled>Back</button>
+              <button class="btn btn-primary" type="button" id="nextBtn">Continue <i data-icon="arrow" data-size="18"></i></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Live estimate panel -->
+        <aside class="estimate" aria-live="polite" aria-label="Live estimate">
+          <h3><i data-icon="calc" data-size="22"></i> Live estimate</h3>
+          <dl id="estimateLines"></dl>
+          <div class="total">
+            <span>Estimated monthly cost</span>
+            <strong id="estimateMonthly">—</strong>
+            <span id="estimateTotal"></span>
+          </div>
+          <p class="note">Indicative only, based on standard menus and rates. Final pricing follows a site survey and menu confirmation.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/quote.js"></script>
+</body>
+</html>

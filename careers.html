@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers | Desert Wings W.L.L.</title>
+  <meta name="description" content="Join Desert Wings W.L.L. — chef, kitchen, housekeeping, laundry, logistics and QHSE roles in Qatar.">
+  <meta name="theme-color" content="#0e4a4f">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("dw_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Careers</li></ol>
+        <span class="eyebrow">Join our team</span>
+        <h1>Careers at Desert Wings</h1>
+        <p>Build your career with a team that feeds and cares for Qatar's workforce every day.</p>
+      </div>
+      <svg class="dunes" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40c160-30 320-30 480 0s320 30 480 0 320-30 480 0v30H0z"/></svg>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="perks" style="margin-bottom:56px">
+          <div class="perk reveal"><i data-icon="award"></i><div><h3>Training & growth</h3><p>Food safety, first aid, fire safety and supervisory training.</p></div></div>
+          <div class="perk reveal" style="--d:80ms"><i data-icon="users"></i><div><h3>Multicultural team</h3><p>Work alongside colleagues from across Asia, Africa and the Arab world.</p></div></div>
+          <div class="perk reveal" style="--d:160ms"><i data-icon="shield"></i><div><h3>Safe workplace</h3><p>Clear health & safety standards in every kitchen and site.</p></div></div>
+        </div>
+
+        <div class="section-head left">
+          <span class="eyebrow">Open positions</span>
+          <h2>Current openings</h2>
+        </div>
+
+        <div class="job-filters">
+          <div class="field">
+            <label for="jobSearch">Search roles</label>
+            <input id="jobSearch" type="search" placeholder="e.g. chef, driver, laundry">
+          </div>
+          <div class="field">
+            <label for="jobDept">Department</label>
+            <select id="jobDept"><option value="">All departments</option></select>
+          </div>
+          <div class="field">
+            <label for="jobType">Job type</label>
+            <select id="jobType"><option value="">All types</option></select>
+          </div>
+        </div>
+        <p class="job-count" id="jobCount" aria-live="polite"></p>
+        <div class="jobs" id="jobList"></div>
+
+        <p class="muted" style="margin-top:28px">Don't see the right role? <button class="btn btn-outline btn-sm" type="button" data-apply="General">Send a general application</button></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Job details & application modal (native <dialog>) -->
+  <dialog class="modal" id="jobModal" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div>
+        <span class="eyebrow" id="modalDept">Application</span>
+        <h2 id="modalTitle" style="font-size:1.4rem">Apply</h2>
+      </div>
+      <button class="icon-btn" type="button" id="modalClose" aria-label="Close"><i data-icon="x" data-size="20"></i></button>
+    </div>
+    <div class="modal-body">
+      <p class="muted" id="modalDesc"></p>
+      <form id="applyForm" novalidate>
+        <input type="hidden" name="position" id="applyPosition">
+        <div class="form-grid">
+          <div class="field">
+            <label for="aName">Full name <span class="req">*</span></label>
+            <input id="aName" name="fullName" required minlength="2" autocomplete="name">
+            <small class="field-error"></small>
+          </div>
+          <div class="field">
+            <label for="aEmail">Email <span class="req">*</span></label>
+            <input id="aEmail" name="email" type="email" required autocomplete="email">
+            <small class="field-error"></small>
+          </div>
+          <div class="field">
+            <label for="aPhone">Phone / WhatsApp <span class="req">*</span></label>
+            <input id="aPhone" name="phone" type="tel" required pattern="[+]?[0-9 \-]{8,16}" data-pattern-msg="Enter a valid phone number" autocomplete="tel">
+            <small class="field-error"></small>
+          </div>
+          <div class="field">
+            <label for="aExp">Years of experience <span class="req">*</span></label>
+            <input id="aExp" name="experience" type="number" min="0" max="50" required>
+            <small class="field-error"></small>
+          </div>
+          <div class="field">
+            <label for="aNat">Nationality</label>
+            <input id="aNat" name="nationality">
+          </div>
+          <div class="field">
+            <label for="aInQatar">Currently in Qatar?</label>
+            <select id="aInQatar" name="inQatar"><option>Yes — transferable visa</option><option>Yes — not transferable</option><option>No — outside Qatar</option></select>
+          </div>
+          <div class="field full">
+            <label for="aCv">CV / Resume (PDF or Word, max 2 MB) <span class="req">*</span></label>
+            <input id="aCv" name="cv" type="file" accept=".pdf,.doc,.docx" required>
+            <small class="field-error"></small>
+          </div>
+          <div class="field full">
+            <label for="aMsg">Short cover note</label>
+            <textarea id="aMsg" name="message" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="step-actions">
+          <button class="btn btn-outline" type="button" id="applyCancel">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit application</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/careers.js"></script>
+</body>
+</html>

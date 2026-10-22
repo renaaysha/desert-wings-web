@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QHSE & Food Safety | Desert Wings W.L.L.</title>
+  <meta name="description" content="Desert Wings' food safety and hygiene system: HACCP principles, temperature control, documentation and staff training.">
+  <meta name="theme-color" content="#0e4a4f">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("dw_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">QHSE</li></ol>
+        <span class="eyebrow">Quality · Health · Safety · Environment</span>
+        <h1>Food Safety & Hygiene System</h1>
+        <p>Our primary focus is ensuring a robust system of food safety and hygiene — from the moment ingredients arrive to the moment a meal is served.</p>
+      </div>
+      <svg class="dunes" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40c160-30 320-30 480 0s320 30 480 0 320-30 480 0v30H0z"/></svg>
+    </section>
+
+    <!-- Definitions -->
+    <section class="section">
+      <div class="container grid grid-2">
+        <article class="card reveal">
+          <div class="card-icon"><i data-icon="shield" data-size="26"></i></div>
+          <h2 style="font-size:1.4rem">Food Safety</h2>
+          <p class="muted">The scientific discipline of handling, preparing and storing food in ways that prevent foodborne illness.</p>
+        </article>
+        <article class="card reveal" style="--d:80ms">
+          <div class="card-icon"><i data-icon="leaf" data-size="26"></i></div>
+          <h2 style="font-size:1.4rem">Food Hygiene</h2>
+          <p class="muted">The conditions and measures necessary to ensure the safety of food from production to consumption. Inadequate hygiene can lead to foodborne disease.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contamination chain -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Risk points</span>
+          <h2>Where contamination can happen</h2>
+          <p class="lead">Food can become contaminated at any stage. We control each one.</p>
+        </div>
+        <div class="sectors">
+          <div class="sector reveal"><i data-icon="leaf" data-size="30"></i><span>Harvesting & slaughter</span></div>
+          <div class="sector reveal" style="--d:60ms"><i data-icon="factory" data-size="30"></i><span>Processing</span></div>
+          <div class="sector reveal" style="--d:120ms"><i data-icon="box" data-size="30"></i><span>Storage</span></div>
+          <div class="sector reveal" style="--d:180ms"><i data-icon="briefcase" data-size="30"></i><span>Distribution</span></div>
+          <div class="sector reveal" style="--d:240ms"><i data-icon="truck" data-size="30"></i><span>Transport</span></div>
+          <div class="sector reveal" style="--d:300ms"><i data-icon="chef" data-size="30"></i><span>Preparation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HACCP -->
+    <section class="section">
+      <div class="container split" style="align-items:start">
+        <div class="reveal">
+          <span class="eyebrow">HACCP</span>
+          <h2>Hazard Analysis & Critical Control Points</h2>
+          <p class="lead">HACCP is an internationally recognised, preventive system for food safety. These seven principles structure every kitchen and delivery operation we run.</p>
+          <div class="card" style="margin-top:28px">
+            <h3><i data-icon="thermo" data-size="20"></i> Temperature safety checker</h3>
+            <p class="muted">Try the same check our supervisors log every shift.</p>
+            <form class="temp-checker" id="tempForm" novalidate>
+              <div class="field">
+                <label for="tempStage">Control point</label>
+                <select id="tempStage" required>
+                  <option value="">Select a stage…</option>
+                  <option value="cook">Cooking (core temperature)</option>
+                  <option value="hot">Hot holding / hot delivery</option>
+                  <option value="chill">Chilled storage / cold delivery</option>
+                  <option value="freeze">Frozen storage</option>
+                  <option value="reheat">Reheating</option>
+                </select>
+                <small class="field-error"></small>
+              </div>
+              <div class="field">
+                <label for="tempValue">Measured temperature (°C)</label>
+                <input id="tempValue" type="number" step="0.1" min="-40" max="150" required placeholder="e.g. 68">
+                <small class="field-error"></small>
+              </div>
+              <button class="btn btn-dark" type="submit">Check</button>
+              <div id="tempResult" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+        <ol class="haccp" id="haccpSteps"><!-- filled by main.js from data.js --></ol>
+      </div>
+    </section>
+
+    <!-- Training -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">People</span>
+          <h2>Training & management areas</h2>
+          <p class="lead">Our teams are trained across safety, compliance and people skills.</p>
+        </div>
+        <div class="training reveal" id="trainingList" style="justify-content:center"></div>
+      </div>
+    </section>
+
+    <!-- Commitments -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our commitments</span>
+          <h2>What we commit to every client</h2>
+        </div>
+        <div class="perks">
+          <div class="perk reveal"><i data-icon="thermo"></i><div><h3>Temperature control</h3><p>Probe-checked cooking, chilling and hot-holding, logged every shift.</p></div></div>
+          <div class="perk reveal"><i data-icon="users"></i><div><h3>Personal hygiene</h3><p>Uniforms, hand-washing, health checks and fit-to-work declarations.</p></div></div>
+          <div class="perk reveal"><i data-icon="leaf"></i><div><h3>Clean environment</h3><p>Colour-coded cleaning schedules, pest control and waste segregation.</p></div></div>
+          <div class="perk reveal"><i data-icon="file"></i><div><h3>Traceability</h3><p>Supplier approval, batch records and full documentation for audits.</p></div></div>
+          <div class="perk reveal"><i data-icon="award"></i><div><h3>Continuous improvement</h3><p>Internal audits, client feedback and corrective-action reviews.</p></div></div>
+          <div class="perk reveal"><i data-icon="shield"></i><div><h3>Health & safety</h3><p>Fire safety, first aid and safe work practices in every kitchen.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/qhse.js"></script>
+</body>
+</html>

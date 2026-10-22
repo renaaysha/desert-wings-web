@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Desert Wings W.L.L.</title>
+  <meta name="description" content="Contact Desert Wings W.L.L., Al Wakra, Qatar — phone +974 3366 8004, email info@desertwingsgroup.com.">
+  <meta name="theme-color" content="#0e4a4f">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("dw_theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Contact</li></ol>
+        <span class="eyebrow">Get in touch</span>
+        <h1>Contact Us</h1>
+        <p>Questions about catering, packed meals, housekeeping or laundry? Our team is ready to help.</p>
+      </div>
+      <svg class="dunes" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 40c160-30 320-30 480 0s320 30 480 0 320-30 480 0v30H0z"/></svg>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <!-- Contact info cards (filled from data.js so details stay in one place) -->
+        <div class="info-cards" id="infoCards"></div>
+
+        <div class="form-card">
+          <h2 style="font-size:1.5rem">Send us a message</h2>
+          <p class="muted">We usually reply within one working day.</p>
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="cName">Full name <span class="req">*</span></label>
+                <input id="cName" name="fullName" required minlength="2" autocomplete="name">
+                <small class="field-error"></small>
+              </div>
+              <div class="field">
+                <label for="cCompany">Company</label>
+                <input id="cCompany" name="company" autocomplete="organization">
+                <small class="field-error"></small>
+              </div>
+              <div class="field">
+                <label for="cEmail">Email <span class="req">*</span></label>
+                <input id="cEmail" name="email" type="email" required autocomplete="email">
+                <small class="field-error"></small>
+              </div>
+              <div class="field">
+                <label for="cPhone">Phone</label>
+                <input id="cPhone" name="phone" type="tel" pattern="[+]?[0-9 \-]{8,16}" data-pattern-msg="Enter a valid phone number, e.g. +974 3366 8004" autocomplete="tel">
+                <small class="field-error"></small>
+              </div>
+              <div class="field full">
+                <label for="cService">Service of interest <span class="req">*</span></label>
+                <select id="cService" name="service" required><option value="">Select a service…</option></select>
+                <small class="field-error"></small>
+              </div>
+              <div class="field full">
+                <label for="cMsg">Message <span class="req">*</span></label>
+                <textarea id="cMsg" name="message" required minlength="10" maxlength="1000"></textarea>
+                <small class="hint"><span id="charCount">0</span>/1000 characters</small>
+                <small class="field-error"></small>
+              </div>
+              <!-- Honeypot: hidden from people, bots often fill it in -->
+              <div class="sr-only" aria-hidden="true">
+                <label for="cWebsite">Website</label>
+                <input id="cWebsite" name="website" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit" id="contactSubmit"><i data-icon="mail" data-size="18"></i> Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Find us</span>
+          <h2>Our location</h2>
+          <p class="lead">P.O. Box 82176, Al Wakra, Qatar</p>
+        </div>
+        <iframe class="map" title="Map showing Al Wakra, Qatar" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Al%20Wakra%2C%20Qatar&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="accordion" id="faqList"><!-- filled by main.js --></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
